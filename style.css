@@ -1,0 +1,226 @@
+html, body {
+    height: 100%; /* Ensure html and body take full height */
+    margin: 0; /* Remove default margin */
+}
+
+canvas {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    padding: 0;
+    margin: 0;
+    position: absolute; /* Keep it behind other elements */
+    z-index: -1; /* Ensure it's at the back */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.parent-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; 
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Add a gap between the containers */
+    max-width: 100vw; /* Ensure it doesn't overflow the viewport */
+    height: 100%; /* Fill the available height */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    max-width: 700px; 
+    padding: 2em; 
+    height: 300px; 
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.itemContainer {
+    width: 700px;
+    max-width: 400px; 
+    padding: 10px; 
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: none;
+    position: relative; /* Enable positioning */
+    top: -30px; /* Move it up initially */
+    transition: opacity 0.5s ease;
+    margin-top: 4em ;
+    margin-bottom: 1em;
+    overflow-y: auto;
+    max-height: 400px;
+  
+}
+.itemContainer.show {
+    display: block; /* Show the container */
+    top: 0; /* Move it to the final position */
+    opacity: 1; 
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+   
+}
+
+#nameList {
+    margin-top: 20px;
+    width: 100%;
+    
+}
+
+.item {
+    margin: 1em;
+    padding: 10px;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s ease forwards;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+/* Modern Animated Button */
+.animated-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid transparent;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #ff8ba7;
+    box-shadow: 0 0 0 2px #ff8ba7;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-left: -1em;
+}
+
+.animated-button svg {
+    position: absolute;
+    width: 24px;
+    fill: #ff8ba7;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+    right: 16px;
+}
+
+.animated-button .arr-2 {
+    left: -25%;
+}
+
+.animated-button .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #ff8ba7;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+    right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+    left: 16px;
+}
+
+.animated-button:hover .text {
+    transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+    fill: #212121;
+}
+
+.animated-button:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px #ff8ba7;
+}
+
+.animated-button:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 1em; 
+    }
+
+    .animated-button {
+        padding: 12px 24px; 
+        font-size: 14px; 
+    }
+    
+    input {
+        font-size: 14px; 
+    }
+
+    .item {
+        font-size: 14px; 
+    }
+}
+
